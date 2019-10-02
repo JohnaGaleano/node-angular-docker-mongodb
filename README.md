@@ -1,27 +1,44 @@
 # Angularcrud
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
+# Importancia de los contenedores
+ los contenedores permiten a un desarrollador empaquetar una aplicación con todas las partes que necesita para funcionar, como bibliotecas y otras dependencias, y enviarla en un solo paquete. Al hacerlo, el desarrollador puede estar seguro de que la aplicación se ejecutará en cualquier otra máquina, independientemente de las configuraciones personalizadas que la máquina pueda tener que puedan diferir de la máquina utilizada para escribir y probar el código.
 
-## Development server
+ # Uso de contenedores
+Eficiencia de C,I
+Compatibilidad y mantenibilidad,
+Despliegue continuo y pruebas,
+Plataformas multi-nube,
+Seguridad
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Ejecutar aplicacion
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Correr `ng serve -o` para ejecutar Angular.
 
-## Build
+## Ejecutar server en Docker
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Estando enla raiz del proyecto angularcrud, correr `cd /api` para cambiar a la carpeta api conde estan los servicios.
 
-## Running unit tests
+`docker-compose build` para vrear el paquete de ejecucion con als imagenes
+y `docker-compose up` para levartar los servicios.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Consumir servicio de la API Estudiantes
 
-## Running end-to-end tests
+En Postman consumir la API `localhost:4000/student/` para obtener la coleccion de Estudiantes.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Consumir `localhost:4000/student/add` para aguardar un estudiante:
 
-## Further help
+Ejemplo:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`{
+	"student_name":"Aurelio",
+	"courses":[{"matematicas":5}, {"ingles":3},{"español":4}],
+	"email_student":"aure@g.com",
+	"id_student":"231343"
+}`
+
+
+
+## Link a repositorio
+
+ [Repositorio](https://github.com/JohnaGaleano/node-angular-docker-mongodb).

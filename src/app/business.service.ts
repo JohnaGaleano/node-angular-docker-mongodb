@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+
 @Injectable({
   providedIn: "root"
 })
@@ -16,5 +18,15 @@ export class BusinessService {
     this.http
       .post(`${this.uri}/add`, obj)
       .subscribe(res => console.log("Done"));
+  }
+
+  getBusiness(): any {
+    let business;
+    this.http.get(`${this.uri}/`).subscribe(res => {
+      business = res;
+      console.log(business);
+    });
+
+    return business;
   }
 }
