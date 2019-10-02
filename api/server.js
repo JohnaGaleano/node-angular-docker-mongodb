@@ -8,7 +8,7 @@ const businessRoute = require("./routes/business.routes");
 const studentRoute = require("./routes/students.routes");
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
+mongoose.connect(config.DB, { useNewUrlParser: true, useUnifiedTopology: true }).then(
   () => {
     console.log("Database is connected");
   },
@@ -22,10 +22,10 @@ app.use(cors());
 app.use("/business", businessRoute);
 app.use("/student", studentRoute)
 const port = process.env.PORT || 4000;
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   console.log("Test app");
   res.json({ hello: "world" });
 });
-const server = app.listen(port, function() {
+const server = app.listen(port, function () {
   console.log("Listening on port " + port);
 });

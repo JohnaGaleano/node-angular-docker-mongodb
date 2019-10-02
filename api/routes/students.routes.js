@@ -64,16 +64,13 @@ studentRoutes.route("/delete/:id").get(function(req, res) {
 });
 
 // Defined delete | remove | destroy route
-studentRoutes.route("/course/:id").get(function(req, res) {
+studentRoutes.route("/course/:course").get(function(req, res) {
+  let course = req.params.course;
+  let query = `{"courses.${course}": { "$gt": 0 }}`;
+  query = JSON.parse(query);
+  console.log(query);
   Student.find(
-    {
-      $elemMatch: {
-        math: req.params.id,
-        english: req.params.id,
-        history: req.params.id,
-        physics: req.params.id
-      }
-    },
+    query,'-__v -_id -courses.physics',
     function(err, student) {
       if (err) res.json(err);
       else res.json(student);

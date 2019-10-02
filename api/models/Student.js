@@ -6,23 +6,15 @@ let Student = new Schema(
     student_name: {
       type: String
     },
-    math: {
-      type: Number
-    },
-    english: {
-      type: Number
-    },
-    history: {
-      type: Number
-    },
-    physics: {
-      type: Number
-    },
+    courses: {
+      type: JSON
+    }
+    ,
     id_student: {
       type: Number
     },
-    email_student: {
-      type: String
+    student: {
+      type: Boolean
     }
   },
   {
