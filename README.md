@@ -22,21 +22,46 @@ Estando enla raiz del proyecto angularcrud, correr `cd /api` para cambiar a la c
 `docker-compose build` para vrear el paquete de ejecucion con als imagenes
 y `docker-compose up` para levartar los servicios.
 
-## Consumir servicio de la API Estudiantes
+## Consumir servicios de la API Estudiantes
 
-En Postman consumir la API `localhost:4000/student/` para obtener la coleccion de Estudiantes.
+* En Postman consumir la API `localhost:4000/student/` para obtener la coleccion de Estudiantes.
 
-Consumir `localhost:4000/student/add` para aguardar un estudiante:
+* Consumir `localhost:4000/student/add` para agregar un estudiante:
 
-Ejemplo:
+	Ejemplo estudiante 1:
 
-`{
-	"student_name":"Aurelio",
-	"courses":[{"matematicas":5}, {"ingles":3},{"español":4}],
-	"email_student":"aure@g.com",
-	"id_student":"231343"
-}`
+	{
+	"student_name":"venicio",
+	"courses":{
+		"math":5, 
+	"english":3,
+	"history":4, 
+	"physics":3
+	},
+		"id_student":"23524",
+		"student": true
+	}
 
+	Ejemplo estudiante 2:
+
+	{
+	"student_name":"argelio",
+	"courses":{
+		"math":3, 
+	"english":4,
+	"history":3.5, 
+	"physics":4
+	},
+		"id_student":"36343",
+		"student": true
+}
+
+
+* Para el promedio de notas de un curso de debe consumir `http://localhost:4000/student/score/:course` donde course seria el campo de busqueda, ejemplo con los registros de los dos estudiantes anteriores:
+
+	`http://localhost:4000/student/score/math`
+	Resultado: 
+	`4`
 
 
 ## Link a repositorio

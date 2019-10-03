@@ -64,18 +64,33 @@ studentRoutes.route("/delete/:id").get(function(req, res) {
 });
 
 // Defined delete | remove | destroy route
-studentRoutes.route("/course/:course").get(function(req, res) {
+studentRoutes.route("/score/:course").get(function(req, res) {
   let course = req.params.course;
   let query = `{"courses.${course}": { "$gt": 0 }}`;
+  let projection = `"courses.${course}"`
+  
   query = JSON.parse(query);
-  console.log(query);
-  Student.find(
-    query,'-__v -_id -courses.physics',
-    function(err, student) {
-      if (err) res.json(err);
-      else res.json(student);
+  projection = JSON.parse(projection);
+
+  let result = Student.find(query, projection, function(
+    err,
+    student
+  ) {
+    if (err) res.json(err);
+    else {
+      console.log(course);
+      let score = 0;
+      for (let i = 0; i < student.length; i++) {
+        
+        score += student[i].courses[course];
+        // console.log(student[i].courses[course]);
+        
+      }
+      var mean = score/student.length;
+      console.log(mean);
+      res.json(mean);
     }
-  );
+  });
 });
 
 module.exports = studentRoutes;
