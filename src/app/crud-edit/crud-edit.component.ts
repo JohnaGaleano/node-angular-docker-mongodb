@@ -39,8 +39,8 @@ export class CrudEditComponent implements OnInit {
     });
   }
 
-  delete(id) {
-    this.bs.delete(id).subscribe(data => {
+  delete(_id) {
+    this.bs.delete(_id).subscribe(data => {
       console.log(`Done`);
       this.router.navigate(["/business"]);
     });
