@@ -12,17 +12,11 @@ export class CrudGetComponent implements OnInit {
 
   public business: any;
   ngOnInit() {
-    // this.business = this.getAllBusiness;
     this.bs.getBusiness().subscribe((data: any) => {
+      console.log(data);
       this.business = data;
-      console.log(this.business);
     });
-    // this.business = this.bs.getBusiness();
-    // console.log(this.business);
     
   }
 
-  async getAllBusiness() {
-    await this.bs.getBusiness();
-  }
 }

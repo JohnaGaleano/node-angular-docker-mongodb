@@ -1,0 +1,8 @@
+<div>
+    <input type="number" #numberIn >
+</div>
+<button (click) = "roman(numberIn.value)">Submit</button>
+
+<div *ngIf="result">
+    <p>{{result}}</p>
+</div>

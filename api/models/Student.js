@@ -15,6 +15,9 @@ let Student = new Schema(
     },
     student: {
       type: Boolean
+    },
+    enrollment:{
+      type: Number
     }
   },
   {

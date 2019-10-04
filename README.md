@@ -39,8 +39,9 @@ y `docker-compose up` para levartar los servicios.
 	"physics":3
 	},
 		"id_student":"23524",
-		"student": true
-	}
+		"student": true,
+		"enrollment": 200000
+}
 
 	Ejemplo estudiante 2:
 
@@ -53,7 +54,9 @@ y `docker-compose up` para levartar los servicios.
 	"physics":4
 	},
 		"id_student":"36343",
-		"student": true
+		"student": true,
+		"enrollment": 342000
+
 }
 
 
@@ -62,6 +65,10 @@ y `docker-compose up` para levartar los servicios.
 	`http://localhost:4000/student/score/math`
 	Resultado: 
 	`4`
+* Para actualizar varios registros se debe consumir `http://localhost:4000/student/enrollment/:quantity`
+ en este ejemplo se actualiza el valor de la matricula para todos los estudiantes activos de la BD:
+	 ejemplo:
+	 `http://localhost:4000/student/enrollment/20000`
 
 
 ## Link a repositorio

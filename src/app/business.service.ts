@@ -20,13 +20,23 @@ export class BusinessService {
       .subscribe(res => console.log("Done"));
   }
 
-  getBusiness(): any {
-    let business;
-    this.http.get(`${this.uri}/`).subscribe(res => {
-      business = res;
-      console.log(business);
-    });
-
-    return business;
+  delete(_id: string){
+    return this.http.get(`${this.uri}/delete/${_id}`);
   }
+
+  getBusiness(): any {
+    return this.http.get(`${this.uri}`);
+  }
+
+  updateBusiness(person_name, business_name, business_gst_number, id: string) {
+    const obj = {
+      person_name: person_name,
+      business_name: business_name,
+      business_gst_number: business_gst_number
+    };
+    this.http.post(`${this.uri}/update/${id}`, obj)
+      .subscribe(res => console.log('Done'));
+  }
+
+
 }

@@ -1,1 +1,7 @@
-<p>crud-get works!</p>
+<div>
+    <div *ngFor = "let bu of business" >
+      <ul>
+        <a [routerLink]="['/business/edit', bu]"><p>{{bu.business_name}}</p></a>
+      </ul>
+    </div>
+  </div>

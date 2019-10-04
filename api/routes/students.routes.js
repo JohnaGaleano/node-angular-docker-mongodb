@@ -93,4 +93,22 @@ studentRoutes.route("/score/:course").get(function(req, res) {
   });
 });
 
+// Defined update route to update all Documents
+studentRoutes.route("/enrollment/:quantity").post(function(req, res) {
+  let quantity = Number(req.params.quantity);
+  // let queryE = `{"courses.${course}": { "$gt": 0 }}`;
+  // let example = { active: true }, { $inc: { semester: 1 } }
+  let query = `{ "student": true } , { $inc: { enrollment: ${quantity} } }`
+  query = JSON.parse(query);
+  console.log(query);
+  
+  Student.updateMany( query )
+    .then(() => {
+      res.json("Update completed");
+    })
+    .catch(err => {
+      res.status(400).send("unable to update the database");
+    });
+});
+
 module.exports = studentRoutes;

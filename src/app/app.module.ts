@@ -12,13 +12,15 @@ import { CrudGetComponent } from "./crud-get/crud-get.component";
 import { CrudEditComponent } from "./crud-edit/crud-edit.component";
 
 import { BusinessService } from "./business.service";
+import { RomanNumeralsComponent } from './roman-numerals/roman-numerals.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CrudAddComponent,
     CrudGetComponent,
-    CrudEditComponent
+    CrudEditComponent,
+    RomanNumeralsComponent
   ],
   imports: [
     BrowserModule,
