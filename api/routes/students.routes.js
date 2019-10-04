@@ -98,11 +98,14 @@ studentRoutes.route("/enrollment/:quantity").post(function(req, res) {
   let quantity = Number(req.params.quantity);
   // let queryE = `{"courses.${course}": { "$gt": 0 }}`;
   // let example = { active: true }, { $inc: { semester: 1 } }
-  let query = `{ "student": true } , { $inc: { enrollment: ${quantity} } }`
+  let query = `{ "student": true } `
+  let query2 = `{ $inc: { "enrollment": ${quantity} } }`
   query = JSON.parse(query);
+  query2 = JSON.parse(query2);
+
   console.log(query);
   
-  Student.updateMany( query )
+  Student.updateMany( query, query2 )
     .then(() => {
       res.json("Update completed");
     })
